@@ -35,3 +35,4 @@ tests/test_users.py:84: AssertionError
 FAILED tests/test_users.py::test_user_email_verification - assert 400 == 200
 ========================= 1 failed, 41 passed in 4.82s =========================
 Error: Process completed with exit code 1.
+

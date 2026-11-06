@@ -30,3 +30,4 @@ jobs:
         if: always()
         run: |
           python -m src.cli summarize data/sample_logs/large_ci_build_failure.log --format markdown
+

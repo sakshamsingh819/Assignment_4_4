@@ -86,3 +86,4 @@ if __name__ == "__main__":
         print(f"▶ {r['file_name']}:")
         print(f"   Step:  {r['failing_step']}")
         print(f"   Cause: {r['root_cause']}\n")
+

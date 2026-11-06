@@ -125,3 +125,4 @@ class LogSummarizer:
             inference_latency_ms=round(inf_latency, 2),
             total_latency_ms=round(total_latency, 2),
         )
+

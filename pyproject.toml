@@ -20,3 +20,4 @@ dependencies = []
 
 [project.scripts]
 logsum = "src.cli:main"
+

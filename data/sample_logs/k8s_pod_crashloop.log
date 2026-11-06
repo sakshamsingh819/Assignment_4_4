@@ -12,3 +12,4 @@ config.MissingConfigurationError: DATABASE_URL is not set in environment
 2026-03-24T12:00:01.216001Z [runtime] Process terminating with status 1
 {"timestamp":"2026-03-24T12:00:01Z","level":"FATAL","message":"Termination triggered by unhandled exception"}
 Kubelet: Container notification-worker failed with exit code 1. Restarting container in CrashLoopBackOff.
+

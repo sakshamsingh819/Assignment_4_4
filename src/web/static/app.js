@@ -234,3 +234,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { copyMarkdownBtn.textContent = '📋 Copy PR Comment'; }, 2000);
   });
 });
+

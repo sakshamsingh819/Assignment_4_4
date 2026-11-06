@@ -142,3 +142,4 @@ def start_server(host: str = "127.0.0.1", port: int = 8080) -> None:
 
 if __name__ == "__main__":
     start_server()
+

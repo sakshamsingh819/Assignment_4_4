@@ -1,10 +1,12 @@
 # 📘 Learning Report: LLM-Based Build & Error Log Summarization
 
-**Course Assignment:** Assignment 4  
+**Student Name:** SAKSHAM SINGH  
+**USN:** 24BTRAO035  
+**Branch:** AI DRIVEN DEVOPS  
+**Subject:** AUTOMATION IN SOFTWARE DEVELOPMENT  
+**Assignment:** Assignment 4 — LLM-Based Build/Error-Log Summarization  
 **Instructor:** Munukuntla Shiva Prasad  
-**Topic:** LLM-Based Build/Error-Log Summarization  
-**Author:** Saksham Singh  
-**Repository:** [https://github.com/sakshamsingh819/llm-build-log-summarizer](https://github.com/sakshamsingh819/llm-build-log-summarizer)  
+**GitHub Repository:** [https://github.com/sakshamsingh819/Assignment_4_4.git](https://github.com/sakshamsingh819/Assignment_4_4.git)  
 
 ---
 
@@ -245,3 +247,4 @@ The **LLM-Based Build & Error Log Summarizer** successfully demonstrates that co
 - [x] `README.md` containing architecture diagrams, installation, and usage instructions.
 - [x] `LEARNINGS_DOCUMENT.md` detailing all implementation steps, experimental findings, and takeaways.
 - [x] Git repository initialized and tagged for submission.
+

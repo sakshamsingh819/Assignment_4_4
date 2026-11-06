@@ -17,3 +17,4 @@ error[E0502]: cannot borrow `orders` as mutable because it is also borrowed as i
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `order-engine` (bin "order-engine") due to 1 previous error
 Process completed with exit code 101.
+

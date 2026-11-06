@@ -1,5 +1,11 @@
 # ⚡ LLM-Based Build & Error Log Summarizer
 
+**Student Name:** SAKSHAM SINGH  
+**USN:** 24BTRAO035  
+**Branch:** AI DRIVEN DEVOPS  
+**Subject:** AUTOMATION IN SOFTWARE DEVELOPMENT  
+**GitHub Repository:** [https://github.com/sakshamsingh819/Assignment_4_4.git](https://github.com/sakshamsingh819/Assignment_4_4.git)  
+
 [![Python Tests](https://img.shields.io/badge/tests-8%20passed-brightgreen.svg)]()
 [![Zero External Dependencies](https://img.shields.io/badge/dependencies-zero%20required-blue.svg)]()
 [![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)]()
@@ -179,3 +185,4 @@ ASSIGNEMENT A4/
 ## 📄 License
 
 MIT License. Designed and developed as part of **Assignment 4: LLM-Based Build/Error-Log Summarization**.
+

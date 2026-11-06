@@ -210,3 +210,4 @@ class LogPreprocessor:
             detected_error_lines=error_indices,
             detected_keywords=sorted(collected_keywords),
         )
+
