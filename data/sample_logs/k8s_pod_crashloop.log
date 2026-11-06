@@ -1,0 +1,14 @@
+2026-03-24T12:00:01.129348Z [bootstrap] Initializing notification-worker microservice v3.2.0
+2026-03-24T12:00:01.140120Z [config] Loading configuration from /etc/app/config.yaml
+2026-03-24T12:00:01.145890Z [config] Redis host configured: redis-cluster.internal:6379
+2026-03-24T12:00:01.210450Z [db] Checking database connection parameters...
+2026-03-24T12:00:01.215120Z [FATAL] Environment variable 'DATABASE_URL' is required but was not provided or is empty.
+2026-03-24T12:00:01.215440Z [stacktrace] Traceback (most recent call last):
+  File "/app/worker.py", line 42, in <module>
+    config = load_env_config()
+  File "/app/config.py", line 18, in load_env_config
+    raise MissingConfigurationError("DATABASE_URL is not set in environment")
+config.MissingConfigurationError: DATABASE_URL is not set in environment
+2026-03-24T12:00:01.216001Z [runtime] Process terminating with status 1
+{"timestamp":"2026-03-24T12:00:01Z","level":"FATAL","message":"Termination triggered by unhandled exception"}
+Kubelet: Container notification-worker failed with exit code 1. Restarting container in CrashLoopBackOff.

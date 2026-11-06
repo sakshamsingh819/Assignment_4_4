@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.7, pytest-8.1.1, pluggy-1.4.0
+rootdir: /home/runner/work/api-service/api-service
+configfile: pyproject.toml
+plugins: cov-5.0.0, anyio-4.3.0
+collected 42 items
+
+tests/test_auth.py ...........                                           [ 26%]
+tests/test_billing.py ........                                           [ 45%]
+tests/test_users.py ............F                                        [ 73%]
+tests/test_health.py .                                                   [ 76%]
+tests/test_payments.py ..........                                        [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_user_email_verification _________________________
+
+client = <httpx.Client object at 0x7f83a48e9120>
+db_session = <sqlalchemy.orm.session.Session object at 0x7f83a49015d0>
+
+    def test_user_email_verification(client, db_session):
+        user = create_unverified_user(db_session, email="alice@example.com")
+        token = generate_verification_token(user.id)
+        
+        response = client.post(f"/api/v1/auth/verify?token={token}")
+        
+>       assert response.status_code == 200
+E       assert 400 == 200
+E        +  where 400 = <Response [400 Bad Request]>.status_code
+
+tests/test_users.py:84: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2026-03-24 14:15:02,112 [ERROR] auth.services: Token verification failed: expired token timestamp 1711289100. Expected margin > 300s.
+2026-03-24 14:15:02,113 [WARNING] api.middleware: Bad request on /api/v1/auth/verify: {"error": "token_expired", "details": "The email verification token has expired"}
+=========================== short test summary info ============================
+FAILED tests/test_users.py::test_user_email_verification - assert 400 == 200
+========================= 1 failed, 41 passed in 4.82s =========================
+Error: Process completed with exit code 1.

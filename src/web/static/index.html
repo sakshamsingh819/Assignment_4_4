@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Build & Error Log Summarizer</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22><text y=%2222%22 font-size=%2222%22>⚡</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <h1>LLM-Based Build & Error Log Summarizer</h1>
+          <div class="subtitle">Intelligent CI/CD log noise reduction, failure root-cause analysis & automated fix suggestion</div>
+        </div>
+      </div>
+      <div class="header-links">
+        <a href="#benchmark" id="benchmarkNav">📊 Evaluation Benchmark</a>
+        <a href="https://github.com" target="_blank">GitHub Repo</a>
+      </div>
+    </header>
+
+    <!-- Presets bar -->
+    <div class="preset-bar">
+      <span class="preset-title">Presets:</span>
+      <div id="presetContainer" style="display: flex; gap: 8px;"></div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Input Panel -->
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>📝</span> Raw Build Log Input
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <label for="fileUploadInput" class="btn-secondary" style="cursor: pointer; padding: 6px 12px; font-size: 0.8rem;">
+              📁 Upload Log
+            </label>
+            <input type="file" id="fileUploadInput" style="display: none;" accept=".log,.txt">
+            <button id="clearBtn" class="btn-secondary">Clear</button>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <div class="control-group">
+            <label for="providerSelect">Inference Engine</label>
+            <select id="providerSelect">
+              <option value="offline" selected>Offline / Rule Engine (Zero-Cost Baseline)</option>
+              <option value="gemini">Google Gemini API</option>
+              <option value="openai">OpenAI API (GPT-4o-mini)</option>
+              <option value="ollama">Local Ollama (Llama 3)</option>
+            </select>
+          </div>
+
+          <div class="control-group" id="apiKeyGroup" style="display: none;">
+            <label for="apiKeyInput">API Key</label>
+            <input type="password" id="apiKeyInput" placeholder="Enter API key...">
+          </div>
+
+          <div class="control-group">
+            <label for="modelInput">Model Name</label>
+            <input type="text" id="modelInput" value="offline-rules">
+          </div>
+        </div>
+
+        <textarea id="logInput" placeholder="Paste your compiler error, CI log, stack trace, or Docker build output here..."></textarea>
+
+        <div class="action-row">
+          <button id="summarizeBtn" class="btn-primary">⚡ Summarize Log</button>
+        </div>
+      </section>
+
+      <!-- Results Panel -->
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🔍</span> Diagnostic Diagnosis
+            <span id="errorBadge" class="badge badge-error" style="margin-left: 8px;">STANDBY</span>
+          </div>
+          <div class="tab-row">
+            <button class="tab-btn active" id="tabVisual">Dashboard</button>
+            <button class="tab-btn" id="tabMarkdown">PR Markdown</button>
+            <button class="tab-btn" id="tabJson">JSON</button>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state">
+          <div class="empty-state-icon">🔬</div>
+          <h3>Ready for Log Diagnosis</h3>
+          <p>Paste a build log or click one of the presets above, then click <strong>Summarize Log</strong>.</p>
+        </div>
+
+        <!-- Results Container -->
+        <div id="resultsContainer" style="display: none; flex-direction: column; gap: 16px;">
+          <!-- Visual Tab View -->
+          <div id="viewVisual" style="display: flex; flex-direction: column; gap: 14px;">
+            <!-- Metrics Row -->
+            <div class="metrics-row">
+              <div class="metric-pill">
+                <div class="metric-val" id="metricCategory">-</div>
+                <div class="metric-label">Category</div>
+              </div>
+              <div class="metric-pill">
+                <div class="metric-val" id="metricReduction">0%</div>
+                <div class="metric-label">Noise Filtered</div>
+              </div>
+              <div class="metric-pill">
+                <div class="metric-val" id="metricConfidence">0%</div>
+                <div class="metric-label">Confidence</div>
+              </div>
+              <div class="metric-pill">
+                <div class="metric-val" id="metricLatency">0ms</div>
+                <div class="metric-label">Latency</div>
+              </div>
+            </div>
+
+            <!-- Executive Summary Card -->
+            <div class="card">
+              <div class="card-title">Executive Summary</div>
+              <div class="card-content" id="execSummary">-</div>
+            </div>
+
+            <!-- Failing Step Card -->
+            <div class="card">
+              <div class="card-title">Failing Step / Command</div>
+              <code style="color: var(--accent-red); font-size: 0.85rem;" id="failingStep">-</code>
+            </div>
+
+            <!-- Root Cause Card -->
+            <div class="card" style="border-left: 3px solid var(--accent-red);">
+              <div class="card-title">Technical Root Cause</div>
+              <div class="card-content" id="rootCause">-</div>
+            </div>
+
+            <!-- Affected Components -->
+            <div class="card">
+              <div class="card-title">Affected Files & Components</div>
+              <div class="component-tags" id="compTags"></div>
+            </div>
+
+            <!-- Suggested Fixes -->
+            <div class="card">
+              <div class="card-title">Recommended Action Plan</div>
+              <ol class="fix-list" id="fixList"></ol>
+            </div>
+
+            <!-- Code Patch -->
+            <div class="card" id="codePatchContainer">
+              <div class="card-title">Suggested Code / Config Fix</div>
+              <div class="code-box">
+                <button class="code-copy-btn" id="copyCodeBtn">Copy Patch</button>
+                <code id="codeBox"></code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Markdown Tab View -->
+          <div id="viewMarkdown" style="display: none;">
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 8px;">
+              <button id="copyMarkdownBtn" class="btn-secondary">📋 Copy PR Comment</button>
+            </div>
+            <textarea id="markdownText" readonly style="width: 100%; min-height: 380px;"></textarea>
+          </div>
+
+          <!-- JSON Tab View -->
+          <div id="viewJson" style="display: none;">
+            <textarea id="jsonText" readonly style="width: 100%; min-height: 380px;"></textarea>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

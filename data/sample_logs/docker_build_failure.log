@@ -1,0 +1,80 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 524B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 98B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/python:3.11-slim@sha256:7e0c...
+#4 DONE 0.0s
+
+#5 [2/5] WORKDIR /app
+#5 CACHED
+
+#6 [3/5] COPY requirements.txt .
+#6 DONE 0.0s
+
+#7 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#7 0.941 Collecting fastapi>=0.100.0 (from -r requirements.txt (line 1))
+#7 1.054   Downloading fastapi-0.110.0-py3-none-any.whl.metadata (25 kB)
+#7 1.120 Collecting uvicorn>=0.22.0 (from -r requirements.txt (line 2))
+#7 1.155   Downloading uvicorn-0.28.0-py3-none-any.whl.metadata (6.5 kB)
+#7 1.201 Collecting psycopg2>=2.9.9 (from -r requirements.txt (line 3))
+#7 1.242   Downloading psycopg2-2.9.9.tar.gz (384 kB)
+#7 1.350   Preparing metadata (setup.py): started
+#7 1.580   Preparing metadata (setup.py): finished with status 'error'
+#7 1.582   error: subprocess-exited-with-error
+#7 1.582   
+#7 1.582   × python setup.py egg_info did not run successfully.
+#7 1.582   │ exit code: 1
+#7 1.582   ╰─> [25 lines of output]
+#7 1.582       running egg_info
+#7 1.582       creating /tmp/pip-pip-egg-info-f82h93g_/psycopg2.egg-info
+#7 1.582       writing /tmp/pip-pip-egg-info-f82h93g_/psycopg2.egg-info/PKG-INFO
+#7 1.582       writing dependency_links to /tmp/pip-pip-egg-info-f82h93g_/psycopg2.egg-info/dependency_links.txt
+#7 1.582       writing top-level names to /tmp/pip-pip-egg-info-f82h93g_/psycopg2.egg-info/top_level.txt
+#7 1.582       writing manifest file '/tmp/pip-pip-egg-info-f82h93g_/psycopg2.egg-info/SOURCES.txt'
+#7 1.582       
+#7 1.582       Error: pg_config executable not found.
+#7 1.582       
+#7 1.582       pg_config is required to build psycopg2 from source. Please add the directory
+#7 1.582       containing pg_config to the PATH or specify the full path with the
+#7 1.582       --pg-config option to setup.py.
+#7 1.582       
+#7 1.582       Alternatively, you may want to install the 'psycopg2-binary' package
+#7 1.582       which provides a pre-compiled wheel for many platforms:
+#7 1.582           pip install psycopg2-binary
+#7 1.582       
+#7 1.582       [end of output]
+#7 1.582   
+#7 1.582   note: This error originates from a subprocess, and is likely not a problem with pip.
+#7 1.584 error: metadata-generation-failed
+#7 1.584 
+#7 1.584 × Encountered error while generating package metadata.
+#7 1.584 ╰─> See above for output.
+#7 1.584 
+#7 1.584 note: This is an issue with the package mentioned above, not pip.
+#7 1.584 hint: See above for details.
+#7 ERROR: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+------
+ > [4/5] RUN pip install --no-cache-dir -r requirements.txt:
+1.582       Error: pg_config executable not found.
+1.582       pg_config is required to build psycopg2 from source. Please add the directory
+1.582       containing pg_config to the PATH or specify the full path with the
+1.582       --pg-config option to setup.py.
+------
+Dockerfile:14
+--------------------
+  12 |     COPY requirements.txt .
+  13 |     
+  14 | >>> RUN pip install --no-cache-dir -r requirements.txt
+  15 |     
+  16 |     COPY . .
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1

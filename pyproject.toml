@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-log-summarizer"
+version = "1.0.0"
+description = "LLM-Based Build and Error Log Summarization and Diagnostic System"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Saksham Singh", email = "sakshamsingh819@gmail.com" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: System :: Logging",
+]
+dependencies = []
+
+[project.scripts]
+logsum = "src.cli:main"

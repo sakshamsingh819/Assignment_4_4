@@ -1,0 +1,19 @@
+   Compiling syn v2.0.58
+   Compiling serde v1.0.197
+   Compiling tokio v1.37.0
+   Compiling order-engine v0.1.0 (/home/runner/work/order-engine)
+error[E0502]: cannot borrow `orders` as mutable because it is also borrowed as immutable
+  --> src/matching.rs:48:9
+   |
+45 |     let top_bid = orders.first();
+   |                   ------ immutable borrow occurs here
+...
+48 |         orders.push(new_order);
+   |         ^^^^^^^^^^^^^^^^^^^^^^ mutable borrow occurs here
+49 |     }
+50 |     println!("Top bid is: {:?}", top_bid);
+   |                                  ------- immutable borrow later used here
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `order-engine` (bin "order-engine") due to 1 previous error
+Process completed with exit code 101.

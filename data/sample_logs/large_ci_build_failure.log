@@ -1,0 +1,235 @@
+[CI] Running pipeline job #48291 on runner-ubuntu-22.04-x64-prod-08
+[CI] Git checkout commit a91f83c18b7e28b12...
+[CI] Branch: main | Triggered by: PR #142 (@contributor)
+[CI] Kernel: Linux 5.15.0-101-generic x86_64
+[CI] Node version: v20.11.1 | Python version: 3.11.4 | Docker version: 24.0.7
+[CI] Setting up build environment...
+[CI] Loading cached dependencies from s3://ci-cache-bucket/node_modules.tar.gz...
+[CI] Cache restored (412MB in 3.2s)
+[CI] Running step: npm run build
+> web-dashboard@2.5.0 build
+> vite build
+vite v5.1.4 building for production...
+transforming (1) index.html
+transforming (2) src/main.tsx
+transforming (3) src/App.tsx
+transforming (4) src/components/Header.tsx
+transforming (5) src/components/Sidebar.tsx
+transforming (6) src/components/Dashboard.tsx
+transforming (7) src/components/Analytics.tsx
+transforming (8) src/components/Settings.tsx
+transforming (9) src/components/UserAvatar.tsx
+transforming (10) src/components/NotificationBell.tsx
+transforming (11) src/components/ChartWrapper.tsx
+transforming (12) src/components/MetricCard.tsx
+transforming (13) src/components/DataTable.tsx
+transforming (14) src/components/Pagination.tsx
+transforming (15) src/components/SearchBar.tsx
+transforming (16) src/components/Modal.tsx
+transforming (17) src/components/Dropdown.tsx
+transforming (18) src/components/Tooltip.tsx
+transforming (19) src/components/Badge.tsx
+transforming (20) src/components/Button.tsx
+transforming (21) src/components/Input.tsx
+transforming (22) src/components/Checkbox.tsx
+transforming (23) src/components/RadioGroup.tsx
+transforming (24) src/components/Switch.tsx
+transforming (25) src/components/Tabs.tsx
+transforming (26) src/components/Accordion.tsx
+transforming (27) src/components/Alert.tsx
+transforming (28) src/components/Spinner.tsx
+transforming (29) src/components/Skeleton.tsx
+transforming (30) src/components/Breadcrumbs.tsx
+transforming (31) src/components/Drawer.tsx
+transforming (32) src/components/Popover.tsx
+transforming (33) src/components/Toast.tsx
+transforming (34) src/components/Card.tsx
+transforming (35) src/components/Divider.tsx
+transforming (36) src/components/Grid.tsx
+transforming (37) src/components/Flex.tsx
+transforming (38) src/components/Box.tsx
+transforming (39) src/components/Container.tsx
+transforming (40) src/components/Stack.tsx
+transforming (41) src/hooks/useAuth.ts
+transforming (42) src/hooks/useTheme.ts
+transforming (43) src/hooks/useAnalytics.ts
+transforming (44) src/hooks/useDebounce.ts
+transforming (45) src/hooks/useLocalStorage.ts
+transforming (46) src/hooks/useMediaQuery.ts
+transforming (47) src/hooks/useClickOutside.ts
+transforming (48) src/hooks/useScrollPosition.ts
+transforming (49) src/hooks/useInterval.ts
+transforming (50) src/hooks/useFetch.ts
+transforming (51) src/services/apiClient.ts
+transforming (52) src/services/userService.ts
+transforming (53) src/services/authService.ts
+transforming (54) src/services/billingService.ts
+transforming (55) src/services/telemetry.ts
+transforming (56) src/services/websocket.ts
+transforming (57) src/utils/formatters.ts
+transforming (58) src/utils/validators.ts
+transforming (59) src/utils/date.ts
+transforming (60) src/utils/currency.ts
+transforming (61) src/utils/math.ts
+transforming (62) src/utils/string.ts
+transforming (63) src/utils/storage.ts
+transforming (64) src/utils/crypto.ts
+transforming (65) src/utils/colors.ts
+transforming (66) src/types/user.ts
+transforming (67) src/types/api.ts
+transforming (68) src/types/billing.ts
+transforming (69) src/types/analytics.ts
+transforming (70) src/types/common.ts
+transforming (71) src/constants/routes.ts
+transforming (72) src/constants/config.ts
+transforming (73) src/constants/theme.ts
+transforming (74) src/constants/endpoints.ts
+transforming (75) src/assets/logo.svg
+transforming (76) src/assets/banner.png
+transforming (77) src/assets/icons/user.svg
+transforming (78) src/assets/icons/settings.svg
+transforming (79) src/assets/icons/bell.svg
+transforming (80) src/assets/icons/chart.svg
+transforming (81) src/assets/icons/logout.svg
+transforming (82) src/assets/icons/check.svg
+transforming (83) src/assets/icons/cross.svg
+transforming (84) src/assets/icons/arrow-right.svg
+transforming (85) src/assets/icons/arrow-left.svg
+transforming (86) src/assets/icons/search.svg
+transforming (87) src/assets/icons/filter.svg
+transforming (88) src/assets/icons/download.svg
+transforming (89) src/assets/icons/upload.svg
+transforming (90) src/assets/icons/refresh.svg
+transforming (91) src/assets/icons/trash.svg
+transforming (92) src/assets/icons/edit.svg
+transforming (93) src/assets/icons/copy.svg
+transforming (94) src/assets/icons/share.svg
+transforming (95) src/assets/icons/lock.svg
+transforming (96) src/assets/icons/mail.svg
+transforming (97) src/assets/icons/phone.svg
+transforming (98) src/assets/icons/calendar.svg
+transforming (99) src/assets/icons/clock.svg
+transforming (100) src/assets/icons/tag.svg
+transforming (101) src/assets/icons/folder.svg
+transforming (102) src/assets/icons/file.svg
+transforming (103) src/assets/icons/chevron-down.svg
+transforming (104) src/assets/icons/chevron-up.svg
+transforming (105) src/assets/icons/chevron-right.svg
+transforming (106) src/assets/icons/chevron-left.svg
+transforming (107) src/assets/icons/plus.svg
+transforming (108) src/assets/icons/minus.svg
+transforming (109) src/assets/icons/info.svg
+transforming (110) src/assets/icons/help.svg
+transforming (111) src/assets/icons/warning.svg
+transforming (112) src/assets/icons/alert.svg
+transforming (113) src/assets/icons/star.svg
+transforming (114) src/assets/icons/heart.svg
+transforming (115) src/assets/icons/bookmark.svg
+transforming (116) src/assets/icons/flag.svg
+transforming (117) src/assets/icons/shield.svg
+transforming (118) src/assets/icons/key.svg
+transforming (119) src/assets/icons/globe.svg
+transforming (120) src/assets/icons/database.svg
+transforming (121) src/assets/icons/server.svg
+transforming (122) src/assets/icons/cpu.svg
+transforming (123) src/assets/icons/memory.svg
+transforming (124) src/assets/icons/hard-drive.svg
+transforming (125) src/assets/icons/wifi.svg
+transforming (126) src/assets/icons/terminal.svg
+transforming (127) src/assets/icons/code.svg
+transforming (128) src/assets/icons/git-branch.svg
+transforming (129) src/assets/icons/git-commit.svg
+transforming (130) src/assets/icons/git-pull-request.svg
+transforming (131) src/assets/icons/external-link.svg
+transforming (132) src/assets/icons/link.svg
+transforming (133) src/assets/icons/paperclip.svg
+transforming (134) src/assets/icons/eye.svg
+transforming (135) src/assets/icons/eye-off.svg
+transforming (136) src/assets/icons/maximize.svg
+transforming (137) src/assets/icons/minimize.svg
+transforming (138) src/assets/icons/zoom-in.svg
+transforming (139) src/assets/icons/zoom-out.svg
+transforming (140) src/assets/icons/camera.svg
+transforming (141) src/assets/icons/image.svg
+transforming (142) src/assets/icons/music.svg
+transforming (143) src/assets/icons/video.svg
+transforming (144) src/assets/icons/mic.svg
+transforming (145) src/assets/icons/volume.svg
+transforming (146) src/assets/icons/volume-x.svg
+transforming (147) src/assets/icons/printer.svg
+transforming (148) src/assets/icons/map-pin.svg
+transforming (149) src/assets/icons/compass.svg
+transforming (150) src/assets/icons/navigation.svg
+transforming (151) src/features/payments/PaymentModal.tsx
+transforming (152) src/features/payments/StripeElements.tsx
+transforming (153) src/features/billing/InvoiceHistory.tsx
+transforming (154) src/features/billing/SubscriptionPlan.tsx
+transforming (155) src/features/reports/ExportCsvButton.tsx
+transforming (156) src/features/reports/ReportGenerator.tsx
+transforming (157) src/features/admin/UserManagement.tsx
+transforming (158) src/features/admin/RolePermissions.tsx
+transforming (159) src/features/admin/AuditLogs.tsx
+transforming (160) src/features/notifications/NotificationCenter.tsx
+transforming (161) src/features/auth/LoginForm.tsx
+transforming (162) src/features/auth/RegisterForm.tsx
+transforming (163) src/features/auth/PasswordReset.tsx
+transforming (164) src/features/auth/TwoFactorSetup.tsx
+transforming (165) src/features/settings/ProfileSettings.tsx
+transforming (166) src/features/settings/SecuritySettings.tsx
+transforming (167) src/features/settings/ApiKeyManager.tsx
+transforming (168) src/features/analytics/MetricOverview.tsx
+transforming (169) src/features/analytics/ConversionFunnel.tsx
+transforming (170) src/features/analytics/RetentionCohort.tsx
+transforming (171) src/features/analytics/TrafficSources.tsx
+transforming (172) src/features/analytics/RealtimeUsers.tsx
+transforming (173) src/features/analytics/DeviceBreakdown.tsx
+transforming (174) src/features/analytics/GeoDistribution.tsx
+transforming (175) src/features/analytics/RevenueTrends.tsx
+transforming (176) src/features/support/TicketList.tsx
+transforming (177) src/features/support/TicketDetail.tsx
+transforming (178) src/features/support/ContactSupport.tsx
+transforming (179) src/features/help/FaqSection.tsx
+transforming (180) src/features/help/DocSearch.tsx
+transforming (181) src/features/teams/TeamMembers.tsx
+transforming (182) src/features/teams/InviteModal.tsx
+transforming (183) src/features/integrations/SlackIntegration.tsx
+transforming (184) src/features/integrations/GitHubIntegration.tsx
+transforming (185) src/features/integrations/WebhookManager.tsx
+transforming (186) src/features/templates/EmailTemplates.tsx
+transforming (187) src/features/templates/NotificationTemplates.tsx
+transforming (188) src/features/dashboard/QuickStats.tsx
+transforming (189) src/features/dashboard/RecentActivity.tsx
+transforming (190) src/features/dashboard/SystemStatus.tsx
+transforming (191) src/features/dashboard/OnboardingChecklist.tsx
+transforming (192) src/features/dashboard/WelcomeBanner.tsx
+transforming (193) src/pages/HomePage.tsx
+transforming (194) src/pages/DashboardPage.tsx
+transforming (195) src/pages/AnalyticsPage.tsx
+transforming (196) src/pages/BillingPage.tsx
+transforming (197) src/pages/SettingsPage.tsx
+transforming (198) src/pages/AdminPage.tsx
+transforming (199) src/pages/NotFoundPage.tsx
+transforming (200) src/pages/ServerErrorPage.tsx
+transforming (201) src/layout/AppLayout.tsx
+transforming (202) src/layout/AuthLayout.tsx
+transforming (203) src/layout/PublicLayout.tsx
+transforming (204) src/context/AuthContext.tsx
+transforming (205) src/context/ThemeContext.tsx
+transforming (206) src/context/NotificationContext.tsx
+transforming (207) src/context/WebSocketContext.tsx
+transforming (208) src/api/interceptors.ts
+transforming (209) src/api/endpoints.ts
+transforming (210) src/router.tsx
+
+[ERROR] src/features/payments/PaymentModal.tsx:42:15 - error TS2339: Property 'confirmCardPayment' does not exist on type 'Stripe'. Did you forget to import '@stripe/stripe-js' types?
+42         await stripe.confirmCardPayment(clientSecret, {
+                     ~~~~~~~~~~~~~~~~~~
+[ERROR] src/features/payments/PaymentModal.tsx:55:11 - error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+55           amount: orderTotal,
+             ~~~~~~
+
+error: TypeScript compilation failed with 2 errors.
+[CI] Error: Command "npm run build" failed with exit code 1.
+[CI] Pipeline execution halted. Duration: 14.2s.
+[CI] Sending failure alert to webhook #ci-build-alerts...

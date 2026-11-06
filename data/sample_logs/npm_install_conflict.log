@@ -1,0 +1,32 @@
+npm warn config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+npm error code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error 
+npm error While resolving: @tanstack/react-query@5.28.4
+npm error Found: react@19.0.0-rc.1
+npm error node_modules/react
+npm error   react@"19.0.0-rc.1" from the root project
+npm error   peer react@">=18.0.0" from react-dom@19.0.0-rc.1
+npm error   node_modules/react-dom
+npm error     react-dom@"19.0.0-rc.1" from the root project
+npm error 
+npm error Could not resolve dependency:
+npm error peer react@"^18.0.0" from @tanstack/react-query@5.28.4
+npm error node_modules/@tanstack/react-query
+npm error   @tanstack/react-query@"^5.28.4" from the root project
+npm error 
+npm error Conflicting peer dependency: react@18.3.1
+npm error node_modules/react
+npm error   peer react@"^18.0.0" from @tanstack/react-query@5.28.4
+npm error   node_modules/@tanstack/react-query
+npm error     @tanstack/react-query@"^5.28.4" from the root project
+npm error 
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error 
+npm error For a full report see:
+npm error /root/.npm/_logs/2026-03-24T08_32_11_201Z-eresolve-report.txt
+
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-03-24T08_32_11_201Z-debug-0.log
+Process completed with exit code 1.
